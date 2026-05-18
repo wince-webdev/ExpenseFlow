@@ -64,9 +64,15 @@
             </button>
 
             {{-- Bouton reset filtres --}}
-            <a href="{{ route('expenses.index') }}"
+            {{-- <a href="{{ route('expenses.index') }}"
                class="text-sm text-gray-500 hover:text-red-500 underline">
                 Réinitialiser
+            </a> --}}
+
+             <a href="{{ route('expenses.index') }}"
+                class="inline-block bg-red-600 hover:bg-red-800 px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200"
+                style="color: white !important;">
+                    🔄 Réinitialiser
             </a>
         </form>
     </div>
