@@ -51,7 +51,23 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('categories', CategoryController::class);
 
     // --- UTILISATEURS (admin seulement) ---
-    Route::resource('users', UserController::class);
+//     Route::resource('users', UserController::class);
+
+    // Routes admin seulement
+     // middleware('role:admin') = Spatie vérifie le rôle avant d'accéder
+     Route::middleware(['auth', 'role:admin'])->group(function () {
+     Route::resource('users', UserController::class);
+     });
+
+     // Routes auth + tous les rôles
+     Route::middleware(['auth'])->group(function () {
+     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+     Route::resource('expenses', ExpenseController::class);
+     Route::patch('/expenses/{expense}/approve', [ExpenseController::class, 'approve'])->name('expenses.approve');
+     Route::patch('/expenses/{expense}/reject', [ExpenseController::class, 'reject'])->name('expenses.reject');
+     Route::resource('revenues', RevenueController::class);
+     Route::resource('categories', CategoryController::class);
+     });
 
 });
 
