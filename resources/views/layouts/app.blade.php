@@ -43,10 +43,8 @@
             </div>
 
             {{-- Navigation --}}
-            <nav class="flex-1 px-3 py-4 space-y-1">
+            {{-- <nav class="flex-1 px-3 py-4 space-y-1">
 
-                {{-- request()->routeIs('dashboard') = true si on est sur le dashboard --}}
-                {{-- Sert à mettre en surbrillance le lien actif --}}
                 <a href="{{ route('dashboard') }}"
                    class="flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition
                           {{ request()->routeIs('dashboard') ? 'bg-blue-600 text-white' : 'text-gray-300 hover:bg-gray-700' }}">
@@ -71,8 +69,6 @@
                     🏷️ Catégories
                 </a>
 
-                {{-- @can() vérifie la permission Spatie --}}
-                {{-- Seul l'admin voit ce lien --}}
                 @can('view users')
                 <a href="{{ route('users.index') }}"
                    class="flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition
@@ -81,9 +77,65 @@
                 </a>
                 @endcan
 
+            </nav> --}}
+
+            <nav class="flex-1 px-3 py-4 space-y-1 overflow-y-auto">
+
+                {{-- ===== MENU PRINCIPAL ===== --}}
+                <p class="text-xs text-gray-500 uppercase tracking-widest px-3 mb-2 mt-1">
+                    Principal
+                </p>
+
+                <a href="{{ route('dashboard') }}"
+                class="flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition
+                        {{ request()->routeIs('dashboard') ? 'bg-blue-600 text-white' : 'text-gray-300 hover:bg-gray-700' }}">
+                    📊 Dashboard
+                </a>
+
+                <a href="{{ route('expenses.index') }}"
+                class="flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition
+                        {{ request()->routeIs('expenses.*') ? 'bg-blue-600 text-white' : 'text-gray-300 hover:bg-gray-700' }}">
+                    💸 Dépenses
+                </a>
+
+                <a href="{{ route('revenues.index') }}"
+                class="flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition
+                        {{ request()->routeIs('revenues.*') ? 'bg-blue-600 text-white' : 'text-gray-300 hover:bg-gray-700' }}">
+                    💰 Revenues
+                </a>
+
+                <a href="{{ route('categories.index') }}"
+                class="flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition
+                        {{ request()->routeIs('categories.*') ? 'bg-blue-600 text-white' : 'text-gray-300 hover:bg-gray-700' }}">
+                    🏷️ Catégories
+                </a>
+
+                {{-- ===== SECTION ADMINISTRATION (Admin uniquement) ===== --}}
+                {{-- @role('admin') = directive Spatie : visible uniquement si rôle admin --}}
+                {{-- Équivalent de @can() mais vérifie le rôle directement --}}
+                @role('admin')
+                <div class="mt-6">
+                    <p class="text-xs text-gray-500 uppercase tracking-widest px-3 mb-2">
+                        Administration
+                    </p>
+
+                    <a href="{{ route('users.index') }}"
+                    class="flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition
+                            {{ request()->routeIs('users.*') ? 'bg-purple-600 text-white' : 'text-gray-300 hover:bg-gray-700' }}">
+                        👥 Utilisateurs
+                    </a>
+
+                    <a href="{{ route('categories.index') }}"
+                    class="flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition
+                            {{ request()->routeIs('categories.*') ? 'bg-purple-600 text-white' : 'text-gray-300 hover:bg-gray-700' }}">
+                        🏷️ Catégories
+                    </a>
+
+                </div>
+                @endrole
+
             </nav>
 
-            {{-- Bouton déconnexion en bas de sidebar --}}
             <div class="px-3 py-4 border-t border-gray-700">
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
