@@ -44,7 +44,7 @@ Route::middleware(['auth'])->group(function () {
     Route::patch('/expenses/{expense}/reject', [ExpenseController::class, 'reject'])
          ->name('expenses.reject');
 
-    // --- RECETTES ---
+    // --- Revenues ---
     Route::resource('revenues', RevenueController::class);
 
     // --- CATÉGORIES ---

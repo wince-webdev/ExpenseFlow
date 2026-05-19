@@ -1,6 +1,6 @@
 @extends('layouts.app')
-@section('title', 'Détail recette')
-@section('page-title', '👁 Détail de la Recette')
+@section('title', 'Détail revenue')
+@section('page-title', '👁 Détail du Revenue')
 
 @section('content')
 
@@ -25,7 +25,7 @@
                     </p>
                 </div>
                 <span class="px-4 py-1.5 rounded-full text-sm font-semibold bg-green-100 text-green-700">
-                    💰 Recette
+                    💰 Revenue
                 </span>
             </div>
         </div>

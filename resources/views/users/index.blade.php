@@ -16,6 +16,7 @@
     <table class="w-full text-sm">
         <thead class="bg-gray-50 border-b border-gray-200">
             <tr>
+                <th class="text-center px-4 py-3 text-gray-600 font-semibold w-12">N°</th>
                 <th class="text-left px-6 py-3 text-gray-600 font-semibold">Utilisateur</th>
                 <th class="text-left px-6 py-3 text-gray-600 font-semibold">Rôle</th>
                 <th class="text-left px-6 py-3 text-gray-600 font-semibold">Inscrit le</th>
@@ -25,6 +26,9 @@
         <tbody class="divide-y divide-gray-100">
             @forelse($users as $user)
             <tr class="hover:bg-gray-50 transition">
+                <td class="px-4 py-4 text-center text-gray-400 text-sm font-mono">
+                    {{ $loop->iteration }}
+                </td>
                 <td class="px-6 py-4">
                     <div class="flex items-center gap-3">
                         {{-- Avatar initiale --}}

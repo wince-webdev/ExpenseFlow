@@ -24,11 +24,11 @@ class DashboardController extends Controller
                                     ->where('status', 'approved')
                                     ->sum('amount');
 
-        // TOTAL RECETTES DU MOIS
+        // TOTAL REVENUES DU MOIS
         $totalRecettesMois = Revenue::whereBetween('revenue_date', [$debutMois, $finMois])
                                     ->sum('amount');
 
-        // BÉNÉFICE NET = Recettes - Dépenses
+        // BÉNÉFICE NET = REVENUES - Dépenses
         $beneficeNet = $totalRecettesMois - $totalDepensesMois;
 
         // DÉPENSES EN ATTENTE (status = pending)
@@ -40,7 +40,7 @@ class DashboardController extends Controller
                                     ->limit(5)
                                     ->get();
 
-        // DERNIÈRES RECETTES
+        // DERNIÈRES REVENUES
         $dernieresRecettes = Revenue::with(['category', 'user'])
                                     ->latest()
                                     ->limit(5)

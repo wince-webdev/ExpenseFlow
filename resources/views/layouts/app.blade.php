@@ -60,7 +60,7 @@
                 <a href="{{ route('revenues.index') }}"
                    class="flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition
                           {{ request()->routeIs('revenues.*') ? 'bg-blue-600 text-white' : 'text-gray-300 hover:bg-gray-700' }}">
-                    💰 Recettes
+                    💰 Revenues
                 </a>
 
                 <a href="{{ route('categories.index') }}"

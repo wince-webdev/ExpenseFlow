@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class RevenueController extends Controller
 {
-    // INDEX — Liste toutes les recettes
+    // INDEX — Liste toutes les revenues
     public function index(Request $request)
     {
         $query = Revenue::with(['category', 'user']);
@@ -66,11 +66,11 @@ class RevenueController extends Controller
         Revenue::create($validated);
 
         return redirect()->route('revenues.index')
-                         ->with('success', 'Recette créée avec succès !');
+                         ->with('success', 'Revenue créée avec succès !');
     }
 
 
-    // SHOW — Détail d'une recette
+    // SHOW — Détail d'une revenue
     public function show(Revenue $revenue)
     {
         // Route Model Binding : Laravel récupère automatiquement la Revenue dont l'ID correspond à l'URL
@@ -100,7 +100,7 @@ class RevenueController extends Controller
         $revenue->update($validated);
 
         return redirect()->route('revenues.index')
-                         ->with('success', 'Recette mise à jour avec succès !');
+                         ->with('success', 'Revenue mise à jour avec succès !');
     }
 
 
@@ -110,6 +110,6 @@ class RevenueController extends Controller
         $revenue->delete();
 
         return redirect()->route('revenues.index')
-                         ->with('success', 'Recette supprimée avec succès !');
+                         ->with('success', 'Revenue supprimée avec succès !');
     }
 }

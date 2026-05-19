@@ -23,7 +23,7 @@ class Category extends Model
         return $this->hasMany(Expense::class);
     }
 
-    // RELATION : Une catégorie a plusieurs recettes
+    // RELATION : Une catégorie a plusieurs revenues
     public function revenues()
     {
         return $this->hasMany(Revenue::class);

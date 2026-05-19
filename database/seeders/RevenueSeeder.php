@@ -54,6 +54,6 @@ class RevenueSeeder extends Seeder
             );
         }
 
-        $this->command->info('✅ Recettes de test créées !');
+        $this->command->info('✅ Revenues de test créées !');
     }
 }

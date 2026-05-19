@@ -1,6 +1,6 @@
 @extends('layouts.app')
-@section('title', 'Modifier recette')
-@section('page-title', '✏️ Modifier la Recette')
+@section('title', 'Modifier revenue')
+@section('page-title', '✏️ Modifier le Revenue')
 
 @section('content')
 

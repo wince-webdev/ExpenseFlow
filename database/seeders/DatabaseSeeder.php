@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
         // 4. Ensuite les dépenses (dépend des users + catégories)
         $this->call(ExpenseSeeder::class);
 
-        // 5. Enfin les recettes (dépend des users + catégories)
+        // 5. Enfin les revenues (dépend des users + catégories)
         $this->call(RevenueSeeder::class);
     }
 }

@@ -12,7 +12,7 @@
     </a>
 </div>
 
-{{-- Deux colonnes : Dépenses | Recettes --}}
+{{-- Deux colonnes : Dépenses | Revenues --}}
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
 
     {{-- Catégories DÉPENSES --}}
@@ -76,10 +76,10 @@
         </table>
     </div>
 
-    {{-- Catégories RECETTES --}}
+    {{-- Catégories Revenues --}}
     <div class="bg-white rounded-xl shadow overflow-hidden">
         <div class="px-6 py-4 bg-green-50 border-b border-green-200">
-            <h2 class="font-bold text-green-700">💰 Catégories Recettes</h2>
+            <h2 class="font-bold text-green-700">💰 Catégories Revenues</h2>
         </div>
         <table class="w-full text-sm">
             <thead class="bg-gray-50 border-b">
@@ -106,7 +106,7 @@
                     </td>
                     <td class="px-6 py-3 text-center">
                         <span class="px-2 py-1 bg-green-100 text-green-700 rounded-full text-xs font-medium">
-                            {{ $cat->revenues_count }} recette(s)
+                            {{ $cat->revenues_count }} revenue(s)
                         </span>
                     </td>
                     <td class="px-6 py-3 text-center">
