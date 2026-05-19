@@ -1,6 +1,6 @@
 @extends('layouts.app')
-@section('title', 'Nouvelle recette')
-@section('page-title', '💰 Nouvelle Recette')
+@section('title', 'Nouveau revenue')
+@section('page-title', '💰 Nouveau Revenue')
 
 @section('content')
 
@@ -12,7 +12,7 @@
             ← Retour à la liste
         </a>
 
-        <h2 class="text-xl font-bold text-gray-800 mb-6 mt-2">Informations de la recette</h2>
+        <h2 class="text-xl font-bold text-gray-800 mb-6 mt-2">Informations du revenue</h2>
 
         <form method="POST" action="{{ route('revenues.store') }}">
             @csrf
@@ -94,7 +94,7 @@
             <div class="flex items-center gap-3">
                 <button type="submit"
                         class="bg-green-600 hover:bg-green-700 text-white font-semibold px-8 py-2.5 rounded-lg transition">
-                    Enregistrer la recette
+                    Enregistrer le revenue
                 </button>
                 <a href="{{ route('revenues.index') }}"
                    class="bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold px-6 py-2.5 rounded-lg transition">

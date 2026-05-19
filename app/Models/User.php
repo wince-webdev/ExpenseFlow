@@ -36,7 +36,7 @@ class User extends Authenticatable
         return $this->hasMany(Expense::class);
     }
 
-    // RELATION : Un user a plusieurs recettes
+    // RELATION : Un user a plusieurs revenues
     public function revenues()
     {
         return $this->hasMany(Revenue::class);

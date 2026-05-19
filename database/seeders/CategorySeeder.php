@@ -28,7 +28,7 @@ class CategorySeeder extends Seeder
             );
         }
 
-        // Catégories pour les RECETTES
+        // Catégories pour les REVENUES
         $revenueCategories = [
             ['name' => 'Ventes Produits',     'color' => '#10B981'], // vert
             ['name' => 'Prestations Services','color' => '#3B82F6'], // bleu

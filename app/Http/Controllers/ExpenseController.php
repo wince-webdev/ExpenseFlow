@@ -42,7 +42,10 @@ class ExpenseController extends Controller
         }
 
         // paginate(10) = 10 résultats par page avec pagination automatique
-        $expenses   = $query->latest()->paginate(10);
+        // $expenses   = $query->latest()->paginate(10);
+        $perPage = in_array(request('per_page'), [10, 25, 50, 100]) ? request('per_page') : 10;
+        $expenses = $query->latest()->paginate($perPage)->withQueryString();
+        // withQueryString() = garde les filtres dans les liens de pagination
         $categories = Category::where('type', 'expense')->get();
 
         return view('expenses.index', compact('expenses', 'categories'));

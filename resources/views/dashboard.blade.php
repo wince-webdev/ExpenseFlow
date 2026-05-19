@@ -21,9 +21,9 @@
         <p class="text-xs text-red-500 mt-1">Dépenses approuvées</p>
     </div>
 
-    {{-- Carte Recettes --}}
+    {{-- Carte Revenues --}}
     <div class="bg-white rounded-xl shadow p-6 border-l-4 border-green-500">
-        <p class="text-sm text-gray-500 mb-1">Recettes du mois</p>
+        <p class="text-sm text-gray-500 mb-1">Revenues du mois</p>
         <p class="text-2xl font-bold text-gray-800">
             {{ number_format($totalRecettesMois, 0, ',', ' ') }} FCFA
         </p>
@@ -37,7 +37,7 @@
         <p class="text-2xl font-bold {{ $beneficeNet >= 0 ? 'text-blue-600' : 'text-orange-600' }}">
             {{ number_format($beneficeNet, 0, ',', ' ') }} FCFA
         </p>
-        <p class="text-xs text-gray-400 mt-1">Recettes - Dépenses</p>
+        <p class="text-xs text-gray-400 mt-1">Revenues - Dépenses</p>
     </div>
 
     {{-- Carte En attente --}}
@@ -108,10 +108,10 @@
         </table>
     </div>
 
-    {{-- Dernières recettes --}}
+    {{-- Dernières revenues --}}
     <div class="bg-white rounded-xl shadow p-6">
         <div class="flex justify-between items-center mb-4">
-            <h2 class="text-lg font-semibold text-gray-700">💰 Dernières recettes</h2>
+            <h2 class="text-lg font-semibold text-gray-700">💰 Dernières revenues</h2>
             <a href="{{ route('revenues.index') }}" class="text-sm text-blue-600 hover:underline">
                 Voir tout →
             </a>
@@ -142,7 +142,7 @@
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="3" class="text-center text-gray-400 py-4">Aucune recette</td>
+                        <td colspan="3" class="text-center text-gray-400 py-4">Aucune revenue</td>
                     </tr>
                 @endforelse
             </tbody>
@@ -175,7 +175,7 @@
                     fill: true
                 },
                 {
-                    label: 'Recettes (FCFA)',
+                    label: 'Revenues (FCFA)',
                     data: recettes,
                     borderColor: '#10B981',
                     backgroundColor: 'rgba(16, 185, 129, 0.1)',

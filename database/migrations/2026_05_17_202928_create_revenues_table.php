@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('category_id')
                   ->constrained()
                   ->onDelete('restrict');
-            $table->string('title');                             // Titre de la recette
+            $table->string('title');                             // Titre de la revenue : Vente de vélo, Salaire...
             $table->decimal('amount', 15, 2);                   // Montant
             $table->date('revenue_date');                        // Date
             $table->text('notes')->nullable();

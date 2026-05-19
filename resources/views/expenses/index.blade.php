@@ -10,7 +10,7 @@
 
         {{-- Bouton Nouvelle Dépense --}}
         <a href="{{ route('expenses.create') }}"
-           class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-5 py-2 rounded-lg transition flex items-center gap-2">
+           class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded-lg transition flex items-center gap-2">
             ＋ Nouvelle dépense
         </a>
 
@@ -74,6 +74,14 @@
                 style="color: white !important;">
                     🔄 Réinitialiser
             </a>
+
+            {{-- <select name="per_page" onchange="this.form.submit()"
+                    class="border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <option value="10"  {{ request('per_page', 10) == 10  ? 'selected' : '' }}>10 / page</option>
+                <option value="25"  {{ request('per_page') == 25  ? 'selected' : '' }}>25 / page</option>
+                <option value="50"  {{ request('per_page') == 50  ? 'selected' : '' }}>50 / page</option>
+                <option value="100" {{ request('per_page') == 100 ? 'selected' : '' }}>100 / page</option>
+            </select> --}}
         </form>
     </div>
 </div>
@@ -83,6 +91,7 @@
     <table class="w-full text-sm">
         <thead class="bg-gray-50 border-b border-gray-200">
             <tr>
+                <th class="text-center px-4 py-3 text-gray-600 font-semibold w-12">N°</th>
                 <th class="text-left px-6 py-3 text-gray-600 font-semibold">Titre</th>
                 <th class="text-left px-6 py-3 text-gray-600 font-semibold">Catégorie</th>
                 <th class="text-left px-6 py-3 text-gray-600 font-semibold">Date</th>
@@ -94,6 +103,9 @@
         <tbody class="divide-y divide-gray-100">
             @forelse($expenses as $expense)
             <tr class="hover:bg-gray-50 transition">
+                <td class="px-4 py-4 text-center text-gray-400 text-sm font-mono">
+                    {{ $loop->iteration }}
+                </td>
 
                 {{-- Titre + soumis par --}}
                 <td class="px-6 py-4">

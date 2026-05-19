@@ -1,6 +1,6 @@
 @extends('layouts.app')
-@section('title', 'Recettes')
-@section('page-title', '💰 Gestion des Recettes')
+@section('title', 'Revenues ')
+@section('page-title', '💰 Gestion des Revenues')
 
 @section('content')
 
@@ -9,7 +9,7 @@
 
         <a href="{{ route('revenues.create') }}"
            class="bg-green-600 hover:bg-green-700 text-white font-semibold px-5 py-2 rounded-lg transition flex items-center gap-2">
-            ＋ Nouvelle recette
+            ＋ Nouveau revenue
         </a>
 
         <form method="GET" action="{{ route('revenues.index') }}"
@@ -57,6 +57,7 @@
     <table class="w-full text-sm">
         <thead class="bg-gray-50 border-b border-gray-200">
             <tr>
+                <th class="text-center px-4 py-3 text-gray-600 font-semibold w-12">N°</th>
                 <th class="text-left px-6 py-3 text-gray-600 font-semibold">Titre</th>
                 <th class="text-left px-6 py-3 text-gray-600 font-semibold">Catégorie</th>
                 <th class="text-left px-6 py-3 text-gray-600 font-semibold">Date</th>
@@ -67,6 +68,9 @@
         <tbody class="divide-y divide-gray-100">
             @forelse($revenues as $revenue)
             <tr class="hover:bg-gray-50 transition">
+                <td class="px-4 py-4 text-center text-gray-400 text-sm font-mono">
+                    {{ $loop->iteration }}
+                </td>
                 <td class="px-6 py-4">
                     <p class="font-medium text-gray-800">{{ $revenue->title }}</p>
                     <p class="text-xs text-gray-400">par {{ $revenue->user->name }}</p>
@@ -109,9 +113,9 @@
             @empty
             <tr>
                 <td colspan="5" class="text-center py-12 text-gray-400">
-                    <p class="text-lg">😕 Aucune recette trouvée</p>
+                    <p class="text-lg">😕 Aucun revenue trouvé</p>
                     <a href="{{ route('revenues.create') }}" class="text-green-600 hover:underline text-sm mt-2 block">
-                        Créer la première recette
+                        Créer le premier revenue
                     </a>
                 </td>
             </tr>

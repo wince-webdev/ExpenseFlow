@@ -23,7 +23,7 @@ class RoleSeeder extends Seeder
             'delete expenses',
             'approve expenses',
 
-            // Permissions recettes
+            // Permissions revenues
             'view revenues',
             'create revenues',
             'edit revenues',
