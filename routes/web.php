@@ -6,6 +6,8 @@ use App\Http\Controllers\ExpenseController;
 use App\Http\Controllers\RevenueController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ReportController;
+
 
 
 // ROUTE PUBLIQUE — Page d'accueil redirige vers login
@@ -67,6 +69,15 @@ Route::middleware(['auth'])->group(function () {
      Route::patch('/expenses/{expense}/reject', [ExpenseController::class, 'reject'])->name('expenses.reject');
      Route::resource('revenues', RevenueController::class);
      Route::resource('categories', CategoryController::class);
+
+
+// Routes rapports PDF
+     Route::get('/reports/expenses/pdf', [ReportController::class, 'exportExpensesPdf'])
+          ->name('reports.expenses.pdf');
+     Route::get('/reports/revenues/pdf', [ReportController::class, 'exportRevenuesPdf'])
+          ->name('reports.revenues.pdf');
+     Route::get('/reports/monthly/pdf', [ReportController::class, 'exportMonthlyPdf'])
+          ->name('reports.monthly.pdf');
      });
 
 });
