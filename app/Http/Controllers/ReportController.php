@@ -7,6 +7,10 @@ use App\Models\Revenue;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
 
+use App\Exports\ExpensesExport;
+use App\Exports\RevenuesExport;
+use Maatwebsite\Excel\Facades\Excel;
+
 class ReportController extends Controller
 {
     // Rapport PDF des dépenses
@@ -112,5 +116,39 @@ class ReportController extends Controller
 
         $nomFichier = 'rapport-mensuel-' . $mois . '.pdf';
         return $pdf->download($nomFichier);
+    }
+
+    
+    // Export Excel des dépenses
+    // GET /reports/expenses/excel
+    public function exportExpensesExcel(Request $request)
+    {
+        // Excel::download(new ExportClass(), 'nom-fichier.xlsx')
+        // Crée et télécharge le fichier Excel
+        $nomFichier = 'depenses-' . now()->format('Y-m-d') . '.xlsx';
+
+        return Excel::download(
+            new ExpensesExport(
+                $request->status,
+                $request->date_debut,
+                $request->date_fin
+            ),
+            $nomFichier
+        );
+    }
+
+    // Export Excel des revenues
+    // GET /reports/revenues/excel
+    public function exportRevenuesExcel(Request $request)
+    {
+        $nomFichier = 'revenues-' . now()->format('Y-m-d') . '.xlsx';
+
+        return Excel::download(
+            new RevenuesExport(
+                $request->date_debut,
+                $request->date_fin
+            ),
+            $nomFichier
+        );
     }
 }

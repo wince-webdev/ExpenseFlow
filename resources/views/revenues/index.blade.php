@@ -53,6 +53,40 @@
     </div>
 </div>
 
+<div class="bg-white rounded-xl shadow p-4 mb-6">
+    <div class="flex flex-col md:flex-row gap-4 items-start md:items-center justify-between">
+
+        {{-- <a href="{{ route('revenues.create') }}"
+           class="bg-green-600 hover:bg-green-700 text-white font-semibold px-5 py-2 rounded-lg transition flex items-center gap-2">
+            ＋ Nouveau revenue
+        </a> --}}
+
+        <a href="{{ route('reports.revenues.pdf') }}"
+            class="bg-red-600 hover:bg-red-700 text-white font-semibold px-4 py-2 rounded-lg transition flex items-center gap-2"
+            target="_blank">
+            📄 Exporter PDF
+        </a>
+
+        <a href="{{ route('reports.revenues.excel') }}"
+            class="bg-green-600 hover:bg-green-700 text-white font-semibold px-4 py-2 rounded-lg">
+            📊 Exporter Excel
+        </a>
+    </div>
+</div>
+
+{{-- <div>
+    <a href="{{ route('reports.revenues.pdf') }}"
+        class="bg-red-600 hover:bg-red-700 text-white font-semibold px-4 py-2 rounded-lg transition flex items-center gap-2"
+        target="_blank">
+            📄 Exporter PDF
+    </a>
+
+    <a href="{{ route('reports.revenues.excel') }}"
+        class="bg-green-600 hover:bg-green-700 text-white font-semibold px-4 py-2 rounded-lg transition flex items-center gap-2">
+        📊 Exporter Excel
+    </a>
+</div> --}}
+
 <div class="bg-white rounded-xl shadow overflow-hidden">
     <table class="w-full text-sm">
         <thead class="bg-gray-50 border-b border-gray-200">
@@ -98,11 +132,7 @@
                            class="text-yellow-600 hover:text-yellow-800 text-xs px-2 py-1 rounded hover:bg-yellow-50 transition">
                             ✏️ Modifier
                         </a>
-                        <a href="{{ route('reports.revenues.pdf') }}"
-                            class="bg-red-600 hover:bg-red-700 text-white font-semibold px-4 py-2 rounded-lg transition flex items-center gap-2"
-                            target="_blank">
-                                📄 Exporter PDF
-                        </a>
+                        
                         <form method="POST" action="{{ route('revenues.destroy', $revenue) }}"
                               onsubmit="return confirm('Confirmer la suppression ?')">
                             @csrf

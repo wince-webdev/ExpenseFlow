@@ -26,8 +26,8 @@
 <body>
 
     <div class="header">
-        <h1>💰 ExpenseFlow — Rapport des Revenues</h1>
-        <p>Généré le {{ now()->format('d/m/Y à H:i') }}</p>
+        <h1 style="text-align: center">EXPENSEFLOW  — RAPPORT DES REVENUS</h1>
+        <p style="text-align: center">Généré le {{ now()->format('d/m/Y à H:i') }}</p>
     </div>
 
     <div class="total-box">

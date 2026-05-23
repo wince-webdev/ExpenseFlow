@@ -70,17 +70,55 @@
             font-size: 10px;
             color: #999;
         }
+
+        
+        .stats-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 15px;
+        }
+        .stats-table td {
+            width: 33%;
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+        }
+        .stats-table .label { font-size: 10px; color: #666; margin-bottom: 4px; }
+        .stats-table .value { font-size: 14px; font-weight: bold; }
+        .bg-red   { background: #fee2e2; }
+        .bg-green { background: #dcfce7; }
+        .bg-blue  { background: #dbeafe; }
+        .text-red   { color: #dc2626; }
+        .text-green { color: #166534; }
+        .text-blue  { color: #1d4ed8; }
     </style>
 </head>
 <body>
 
     <div class="header">
-        <h1>💰 ExpenseFlow — Rapport des Dépenses</h1>
-        <p>Généré le {{ now()->format('d/m/Y à H:i') }}</p>
+        <h1 style="text-align: center">EXPENSEFLOW  — RAPPORT DES DÉPENSES</h1>
+        <p style="text-align: center">Généré le {{ now()->format('d/m/Y à H:i') }}</p>
     </div>
 
     {{-- Cartes statistiques --}}
-    <div class="stats">
+    <table class="stats-table">
+        <tr>
+            <td class="bg-red">
+                <div class="label">Total Approuvé</div>
+                <div class="value text-red">{{ number_format($totalApprouve, 0, ',', ' ') }} FCFA</div>
+            </td>
+            <td class="bg-green">
+                <div class="label">En Attente</div>
+                <div class="value text-green">{{ number_format($totalEnAttente, 0, ',', ' ') }} FCFA</div>
+            </td>
+            <td class="bg-blue">
+                <div class="label">Total Général</div>
+                <div class="value text-green">{{ number_format($totalGeneral, 0, ',', ' ') }} FCFA</div>
+            </td>
+            
+        </tr>
+    </table>
+    {{-- <div class="stats">
         <div class="stat-box green">
             <p class="label">Total Approuvé</p>
             <p class="value">{{ number_format($totalApprouve, 0, ',', ' ') }} FCFA</p>
@@ -93,7 +131,7 @@
             <p class="label">Total Général</p>
             <p class="value">{{ number_format($totalGeneral, 0, ',', ' ') }} FCFA</p>
         </div>
-    </div>
+    </div> --}}
 
     {{-- Tableau --}}
     <table>
@@ -135,7 +173,7 @@
         </tbody>
     </table>
 
-    <div class="footer">
+    <div class="footer" style="text-align: center">
         ExpenseFlow — Rapport généré automatiquement — {{ now()->format('d/m/Y') }}
     </div>
 

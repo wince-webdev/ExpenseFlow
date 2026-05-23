@@ -75,6 +75,8 @@
                     🔄 Réinitialiser
             </a>
 
+            
+
             {{-- <select name="per_page" onchange="this.form.submit()"
                     class="border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
                 <option value="10"  {{ request('per_page', 10) == 10  ? 'selected' : '' }}>10 / page</option>
@@ -83,6 +85,16 @@
                 <option value="100" {{ request('per_page') == 100 ? 'selected' : '' }}>100 / page</option>
             </select> --}}
         </form>
+        <a href="{{ route('reports.expenses.pdf') }}"
+            class="bg-red-600 hover:bg-red-700 text-white font-semibold px-4 py-2 rounded-lg transition flex items-center gap-2"
+            target="_blank">
+                📄 Exporter PDF
+        </a>
+
+        <a href="{{ route('reports.expenses.excel') }}"
+            class="bg-green-600 hover:bg-green-700 text-white font-semibold px-4 py-2 rounded-lg transition flex items-center gap-2">
+            📊 Exporter Excel
+        </a>
     </div>
 </div>
 
@@ -166,16 +178,7 @@
                             ✏️ Modifier
                         </a>
 
-                        <a href="{{ route('reports.expenses.pdf') }}"
-                           class="text-red-600 hover:text-red-800 font-medium text-xs px-2 py-1 rounded hover:bg-yellow-50 transition">
-                            📄 Exporter PDF
-                        </a>
-
-                        {{-- <a href="{{ route('reports.expenses.pdf') }}"
-                            class="bg-red-600 hover:bg-red-700 text-white font-semibold px-4 py-2 rounded-lg transition flex items-center gap-2"
-                            target="_blank">
-                                📄 Exporter PDF
-                        </a> --}}
+                        
 
                         {{-- Approuver (si pending) --}}
                         @if($expense->status === 'pending')

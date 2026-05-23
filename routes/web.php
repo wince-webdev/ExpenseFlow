@@ -32,4 +32,9 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::resource('users', \App\Http\Controllers\UserController::class);
 });
 
+Route::get('/reports/expenses/excel', [\App\Http\Controllers\ReportController::class, 'exportExpensesExcel'])
+     ->name('reports.expenses.excel');
+Route::get('/reports/revenues/excel', [\App\Http\Controllers\ReportController::class, 'exportRevenuesExcel'])
+     ->name('reports.revenues.excel');
+
 require __DIR__.'/auth.php';
