@@ -166,6 +166,17 @@
                             ✏️ Modifier
                         </a>
 
+                        <a href="{{ route('reports.expenses.pdf') }}"
+                           class="text-red-600 hover:text-red-800 font-medium text-xs px-2 py-1 rounded hover:bg-yellow-50 transition">
+                            📄 Exporter PDF
+                        </a>
+
+                        {{-- <a href="{{ route('reports.expenses.pdf') }}"
+                            class="bg-red-600 hover:bg-red-700 text-white font-semibold px-4 py-2 rounded-lg transition flex items-center gap-2"
+                            target="_blank">
+                                📄 Exporter PDF
+                        </a> --}}
+
                         {{-- Approuver (si pending) --}}
                         @if($expense->status === 'pending')
                             @can('approve expenses')
